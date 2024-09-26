@@ -26,7 +26,7 @@ export default function App() {
           </View>
         )}
       </View>
-      <TouchableOpacity style={styles.button} onPress={getRandomQuote}>
+      <TouchableOpacity style={styles.button} onPress={()=> getRandomQuote()}> 
         <Text style={styles.buttonText}>Nova Citação</Text>
       </TouchableOpacity>
     </View>

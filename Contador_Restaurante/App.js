@@ -4,18 +4,25 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'; // Impo
 export default function App() { // Define o componente principal do aplicativo
   const [count, setCount] = useState(0); // Declara um estado chamado 'count' com valor inicial 0
 
+  const increment = () => setCount(count + 1); // Função para incrementar o contador
+  const decrement = () => { // Função para decrementar o contador
+    if (count > 0) { // Verifica se o contador é maior que 0
+      setCount(count - 1); // Decrementa o contador
+    }
+  };
+
   return ( // Retorna o layout do aplicativo
     <View style={styles.container}> 
       <Text style={styles.title}>Contador Clientes</Text> 
       <TouchableOpacity
         style={[styles.button, styles.incrementButton]} // Aplica estilos ao botão de incremento
-        onPress={() => setCount(count + 1)} // Incrementa o contador quando o botão é pressionado
+        onPress={increment} // Incrementa o contador quando o botão é pressionado
       >
         <Text style={styles.buttonText}>+</Text> 
       </TouchableOpacity>
       <TouchableOpacity
         style={[styles.button, styles.decrementButton]} // Aplica estilos ao botão de decremento
-        onPress={() => setCount(count - 1)} // Decrementa o contador quando o botão é pressionado
+        onPress={decrement} // Decrementa o contador quando o botão é pressionado
       >
         <Text style={styles.buttonText}>-</Text> 
       </TouchableOpacity>
